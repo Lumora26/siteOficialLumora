@@ -1,0 +1,14 @@
+:root {
+    --bg-dark-radial: radial-gradient(circle at 50% 30%, #250407 0%, #110103 60%, #090001 100%);
+    --bg-dark: #110103;
+    --bg-card: rgba(26, 4, 7, 0.6);
+    --gold-gradient: linear-gradient(135deg, #dfb76c 0%, #cfa353 100%);
+    --gold: #d4a359;
+    --gold-hover: #bfa15f;
+    --cream-light: #eae0d5;
+    --text-light: #f5ebe0;
+    --text-muted: #b5a4a3;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
