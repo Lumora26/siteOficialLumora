@@ -1,10 +1,31 @@
-/* Logo */
+/* Logo Lumora Original */
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
     color: var(--text-light);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 2px;
 }
 
 .logo-rose-svg {
@@ -25,7 +46,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-partner:hover {
@@ -54,7 +75,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-cta:hover {
@@ -62,6 +83,7 @@
     transform: translateY(-2px);
 }
 
+/* Botão Sobre Nós (Com Margem Superior Ampla Restaurada) */
 .btn-outline {
     border: 1px solid var(--gold);
     color: var(--gold);
@@ -71,13 +93,16 @@
     font-size: 14px;
     font-weight: 600;
     width: fit-content;
-    transition: all 0.3s;
-    margin-top: 10px;
+    transition: all 0.3s ease;
+    margin-top: 24px; /* Espaço generoso para não colar no texto */
+    display: inline-flex;
+    align-items: center;
 }
 
 .btn-outline:hover {
     background-color: var(--gold);
     color: #120103;
+    transform: translateY(-2px);
 }
 
 .btn-outline-ghost {
@@ -91,7 +116,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-outline-ghost:hover {
@@ -100,31 +125,94 @@
     transform: translateY(-2px);
 }
 
-/* Redes Sociais */
-.social-icons {
-    display: flex;
-    gap: 12px;
+/* Efeito de Hover e Flutuação dos Cards (Restaurado para todos os cards) */
+.product-card, .feature-item, .step-card, .testimonial-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.social-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.product-card:hover, .feature-item:hover, .step-card:hover, .testimonial-card:hover {
+    border-color: var(--gold) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Rosa do Sobre Nós */
+.about-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: all 0.3s;
 }
 
-.social-icon:hover {
+.rose-glow-back {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(212, 163, 89, 0.15) 0%, rgba(168, 16, 33, 0.05) 50%, rgba(0,0,0,0) 100%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 1;
+}
+
+.blended-rose-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    filter: brightness(0.9) contrast(1.1);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0) 70%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0) 70%);
+}
+
+.rose-sparkle {
+    position: absolute;
     color: var(--gold);
-    border-color: var(--gold);
+    font-size: 14px;
+    opacity: 0.8;
+    z-index: 3;
+    text-shadow: 0 0 8px rgba(212, 163, 89, 0.8);
+    animation: floatSparkle 4s ease-in-out infinite alternate;
 }
 
-/* FAQ Items */
+.rs-1 { top: 20%; left: 15%; animation-delay: 0s; }
+.rs-2 { bottom: 25%; right: 12%; animation-delay: 1.5s; font-size: 10px; }
+.rs-3 { top: 15%; right: 20%; animation-delay: 0.7s; font-size: 12px; }
+
+@keyframes floatSparkle {
+    0% { transform: translateY(0) scale(0.8); opacity: 0.4; }
+    100% { transform: translateY(-12px) scale(1.2); opacity: 1; }
+}
+
+.floating-petal-asset {
+    position: absolute;
+    background: radial-gradient(circle, rgba(168, 16, 33, 0.8) 0%, rgba(71, 3, 10, 0.3) 100%);
+    border-radius: 50% 0 50% 50%;
+    z-index: 3;
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.pa-1 {
+    width: 28px;
+    height: 20px;
+    top: 30%;
+    right: 5%;
+    transform: rotate(35deg);
+}
+
+.pa-2 {
+    width: 32px;
+    height: 24px;
+    bottom: 15%;
+    left: 8%;
+    transform: rotate(-25deg);
+}
+
+/* FAQ Accordion */
 .faq-item {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -176,7 +264,7 @@
     transition: transform 0.3s;
 }
 
-/* Formulários */
+/* Formulário de Parceiros */
 .partner-form {
     background: rgba(13, 1, 2, 0.8);
     border: 1px solid var(--border-color);
@@ -237,13 +325,4 @@
     font-size: 13px;
     text-align: center;
     animation: fadeIn 0.4s ease forwards;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    .form-row {
-        grid-template-columns: 1fr;
-    }
 }
