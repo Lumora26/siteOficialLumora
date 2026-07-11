@@ -1,11 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lumora - Sobre Nós</title>
+    
+    <!-- Google Fonts: Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./../../css/internas/sobrenos.css">
 </head>
 <body>
-    <h1>teste</h1>
+
+    <!-- Header Simplificado -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-seedling logo-icon"></i>
+                <div class="logo-text">
+                    <h1>LUMORA</h1>
+                    <span>Memórias que Perduram</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag">Sobre Nós</span>
+                <h2>A tecnologia muda. <span>As lembranças permanecem.</span></h2>
+                <p>A Lumora nasceu para transformar histórias em memórias digitais que atravessam gerações. Nossa missão é garantir que pessoas especiais nunca sejam esquecidas.</p>
+                <a href="#valores" class="btn-primary">
+                    Conheça nossa história <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="./../../img/depoimentos/familiapordosol2.png" alt="Família compartilhando memórias">
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Section (Imagens coladas às extremidades do card com padding leve) -->
+    <section class="container chapters">
+        
+        <!-- Capítulo I -->
+        <div class="chapter-card fade-in-section">
+            <div class="chapter-content">
+                <span class="chapter-tag">Capítulo I</span>
+                <h3>Uma ideia que nasceu da <span class="highlight-gold">saudade</span></h3>
+                <div class="chapter-text-block">
+                    <p>Tudo começou com uma simples reflexão.</p>
+                    <p>Percebemos que, com o passar dos anos, fotografias se perdiam, histórias deixavam de ser contadas e lembranças importantes acabavam desaparecendo.</p>
+                    <p>Cada pessoa possui uma trajetória única, construída por momentos, conquistas, desafios e muito amor.</p>
+                    <p class="chapter-quote-gold">"E se fosse possível preservar tudo isso em um único lugar?"</p>
+                    <p>Foi dessa ideia que nasceu a Lumora.</p>
+                </div>
+            </div>
+            <div class="chapter-image-container">
+                <img src="./../../img/ilustracoes/retrato.jpg" alt="Mãos segurando fotografia antiga">
+            </div>
+        </div>
+
+        <!-- Capítulo II -->
+        <div class="chapter-card reverse fade-in-section">
+            <div class="chapter-image-container">
+                <img src="./../../img/ilustracoes/notbook.png" alt="Homenagem exibida em tela digital">
+            </div>
+            <div class="chapter-content">
+                <span class="chapter-tag">Capítulo II</span>
+                <h3>Transformando memórias em <span class="highlight-gold">tecnologia</span></h3>
+                <div class="chapter-text-block">
+                    <p>Transformar uma ideia em realidade exigiu muito estudo, planejamento e dedicação.</p>
+                    <p>Cada detalhe foi pensado para oferecer uma experiência elegante, simples e acessível.</p>
+                    <p>Desenvolvemos páginas rápidas, modernas e totalmente personalizadas, capazes de reunir fotografias, vídeos, músicas, mensagens e histórias em um único espaço digital.</p>
+                    <p>Mais do que criar páginas, começamos a construir um lugar onde as memórias podem continuar vivas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capítulo III -->
+        <div class="chapter-card fade-in-section">
+            <div class="chapter-content">
+                <span class="chapter-tag">Capítulo III</span>
+                <h3>Construindo um legado para o <span class="highlight-gold">futuro</span></h3>
+                <div class="chapter-text-block">
+                    <p>Acreditamos que a tecnologia pode aproximar pessoas mesmo quando o tempo tenta afastá-las.</p>
+                    <p>Nosso sonho é fazer com que famílias, amigos e futuras gerações possam conhecer histórias que jamais deveriam desaparecer.</p>
+                    <p>Queremos que a Lumora seja reconhecida não apenas pela tecnologia que desenvolve, mas pelo impacto emocional que cria na vida das pessoas.</p>
+                    <p class="chapter-emphasis">Porque toda história merece continuar sendo contada.</p>
+                </div>
+            </div>
+            <div class="chapter-image-container">
+                <img src="./../../img/ilustracoes/luzesflutuantes.jpg" alt="Família junta ao ar livre">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Values Section (Grade 3x3 Perfeitamente Alinhada e Focada) -->
+    <section class="values-section" id="valores">
+        <div class="container">
+            <div class="section-title-centered">
+                <h2>Nossos Valores</h2>
+            </div>
+            <div class="values-grid">
+                
+                <div class="value-card fade-in-section">
+                    <div class="value-icon"><i class="fa-regular fa-heart"></i></div>
+                    <h4>Respeito</h4>
+                    <p>Cada homenagem é tratada com carinho, cuidado e dignidade.</p>
+                </div>
+
+                <div class="value-card fade-in-section">
+                    <div class="value-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h4>Privacidade</h4>
+                    <p>Suas lembranças pertencem somente à sua família.</p>
+                </div>
+
+                <div class="value-card fade-in-section">
+                    <div class="value-icon"><i class="fa-regular fa-gem"></i></div>
+                    <h4>Excelência</h4>
+                    <p>Buscamos qualidade em cada detalhe que entregamos.</p>
+                </div>
+
+                <div class="value-card fade-in-section">
+                    <div class="value-icon"><i class="fa-solid fa-user-group"></i></div>
+                    <h4>Empatia</h4>
+                    <p>Antes da tecnologia, existem pessoas. E é por elas que fazemos.</p>
+                </div>
+
+                <div class="value-card fade-in-section">
+                    <div class="value-icon"><i class="fa-solid fa-tree"></i></div>
+                    <h4>Legado</h4>
+                    <p>Criamos páginas projetadas para durar e resistir ao tempo.</p>
+                </div>
+
+                <div class="value-card fade-in-section">
+                    <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Segurança</h4>
+                    <p>Sistemas protegidos para garantir a permanência das suas memórias por gerações.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section (Bloco Único com Divisória) -->
+    <section class="mv-section">
+        <div class="container">
+            <div class="mv-container fade-in-section">
+                
+                <div class="mv-block">
+                    <div class="mv-icon-wrapper">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div class="mv-content">
+                        <h3>Nossa Missão</h3>
+                        <p>Eternizar histórias através da tecnologia, criando homenagens digitais que preservam memórias, aproximam famílias e mantém vivo o legado de quem marcou nossas vidas.</p>
+                    </div>
+                </div>
+
+                <div class="mv-divider"></div>
+
+                <div class="mv-block">
+                    <div class="mv-icon-wrapper">
+                        <i class="fa-regular fa-eye"></i>
+                    </div>
+                    <div class="mv-content">
+                        <h3>Nossa Visão</h3>
+                        <p>Ser referência nacional em memoriais digitais, inspirando uma nova forma de preservar histórias, conectar gerações e transformar lembranças em patrimônios eternos.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Banner CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>As pessoas partem. <span>As histórias permanecem.</span></h2>
+            <p>E nós existimos para garantir isso.</p>
+            <button class="btn-outline" onclick="scrollToTop()">
+                <a href="./../../../index.html"><i class="fa-solid fa-house"></i> Voltar para a página inicial</a>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-col footer-logo">
+                <div class="logo">
+                    <i class="fa-solid fa-seedling logo-icon"></i>
+                    <div class="logo-text">
+                        <h1>LUMORA</h1>
+                        <span>Memórias que Perduram</span>
+                    </div>
+                </div>
+                <p class="footer-tagline">Uma forma moderna e eterna de honrar e preservar a jornada de quem amamos.</p>
+            </div>
+
+            <div class="footer-col">
+                <h5>Navegação</h5>
+                <ul>
+                    <li><a href="./../../../index.html">Home</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre-nos">Sobre nós</a></li>
+                    <li><a href="#como-funciona">Como funciona</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Contato</h5>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(11) 9 6147-5002</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>lumoraoficialmdl@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>São Paulo, SP - Brasil</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h5>Siga-nos</h5>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <p>© 2026 Lumora. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Configuração uniforme para a animação de entrada ao rolar (Scroll Reveal)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.fade-in-section');
+        animatedElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
