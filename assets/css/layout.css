@@ -37,13 +37,11 @@ nav a {
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
+    padding-bottom: 4px;
 }
 
-nav a:hover, nav a.active {
-    color: var(--text-light);
-}
-
-nav a.active::after {
+/* Base da barra dourada invisível por padrão */
+nav a::after {
     content: '';
     position: absolute;
     bottom: -6px;
@@ -51,6 +49,15 @@ nav a.active::after {
     width: 100%;
     height: 2px;
     background-color: var(--gold);
+    transform: scaleX(0); /* Inicia encolhida no centro */
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+}
+
+/* Quando ativo, a barra cresce horizontalmente e ganha opacidade */
+nav a.active::after {
+    transform: scaleX(1); /* Estica até o tamanho total */
+    opacity: 1;
 }
 
 /* Rodapé */
