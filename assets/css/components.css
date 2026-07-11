@@ -6,7 +6,17 @@
     text-decoration: none;
     color: var(--text-light);
 }
+.logo img{
 
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+
+    display:block;
+
+}
 .logo-text {
     display: flex;
     flex-direction: column;
