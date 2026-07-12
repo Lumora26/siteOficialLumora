@@ -1,11 +1,839 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lumora - Como Funciona</title>
+    
+    <!-- Google Fonts: Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2 family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Variáveis de Estilo */
+        :root {
+            --bg-deep: #030712;
+            --bg-card: #081020;
+            --bg-card-hover: #0e1a34;
+            --gold-primary: #cfa163;
+            --gold-dark: #a98048;
+            --text-light: #ffffff;
+            --text-muted: #cbd5e1;
+            --text-dark: #64748b;
+            --border-gold: rgba(207, 161, 99, 0.15);
+            --border-gold-hover: rgba(207, 161, 99, 0.45);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 1. Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            color: var(--gold-primary);
+            font-size: 28px;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            letter-spacing: 2px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .btn-back-home {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-back-home:hover {
+            background-color: var(--gold-primary);
+            color: var(--bg-deep);
+        }
+
+        /* 2. Hero Section */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            position: relative;
+            background: radial-gradient(circle at 80% 30%, rgba(207, 161, 99, 0.07) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 540px;
+        }
+
+        .section-tag {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            line-height: 1.25;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .hero h2 span {
+            color: var(--gold-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Sublinhado decorativo na palavra "significado" */
+        .hero h2 span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 4px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold-primary);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 36px;
+            font-weight: 300;
+        }
+
+        .btn-cta {
+            background-color: var(--gold-primary);
+            color: var(--bg-deep);
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .hero-mockup-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-mockup-wrapper img {
+            width: 100%;
+            max-width: 620px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+        }
+
+        /* 3. Section Processo em 6 Passos */
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-title-area {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-title-area span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .process-title-area h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        /* Container principal do processo unificado */
+        .process-flow-container {
+            background-color: rgba(8, 16, 32, 0.4);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 40px;
+            row-gap: 60px;
+            position: relative;
+        }
+
+        /* Cartão de cada etapa */
+        .step-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 30px 24px 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+
+        .step-card:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--border-gold-hover);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(207, 161, 99, 0.08);
+        }
+
+        /* Ornamento com número da etapa no topo do card */
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 500;
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Elementos das Etapas */
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            justify-content: flex-start;
+        }
+
+        .step-header i {
+            color: var(--gold-primary);
+            font-size: 18px;
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 13.5px;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 24px;
+            min-height: 64px; /* Garante alinhamento das imagens */
+        }
+
+        .step-image-wrap {
+            border-radius: 6px;
+            overflow: hidden;
+            height: 160px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto; /* Alinha a imagem sempre na base */
+        }
+
+        .step-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75) contrast(1.05);
+            transition: var(--transition-smooth);
+        }
+
+        .step-card:hover .step-image-wrap img {
+            filter: brightness(0.9) contrast(1.05);
+        }
+
+        /* Setas indicadoras de fluxo (Apenas em telas grandes) */
+        .flow-arrow {
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 18px;
+            opacity: 0.6;
+            z-index: 2;
+        }
+
+        /* Posicionamento das setas horizontais no grid de 3 colunas */
+        .arrow-1-2 {
+            top: 25%;
+            left: 31%;
+        }
+
+        .arrow-2-3 {
+            top: 25%;
+            left: 65%;
+        }
+
+        .arrow-4-5 {
+            bottom: 25%;
+            left: 31%;
+        }
+
+        .arrow-5-6 {
+            bottom: 25%;
+            left: 65%;
+        }
+
+        /* 4. Section Tudo Pensado Para Você */
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .features-title-centered {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .features-title-centered h2 {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 36px 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        .feature-card:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--border-gold-hover);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(207, 161, 99, 0.08);
+        }
+
+        /* Suaviza os demais cartões ao focar um deles */
+        .features-grid:hover .feature-card:not(:hover) {
+            opacity: 0.65;
+            transform: scale(0.98);
+        }
+
+        .feature-icon {
+            color: var(--gold-primary);
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* 5. Footer CTA Banner */
+        .cta-banner {
+            padding: 130px 0;
+            background: linear-gradient(rgba(3, 7, 18, 0.8), rgba(3, 7, 18, 0.95)), 
+                        url('./../../img/ilustracoes/sea.jpg') no-repeat center center;
+            background-size: cover;
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+            text-align: center;
+        }
+
+        @media (min-width: 1024px) {
+            .cta-banner {
+                padding: 150px 0;
+                background-position: center 35%;
+            }
+        }
+
+        .cta-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+
+        .cta-banner h2 span {
+            color: var(--gold-primary);
+            display: block;
+        }
+
+        .cta-banner p {
+            display: none; /* Mantendo foco direto nos títulos */
+        }
+
+        .cta-banner .btn-cta {
+            margin-top: 20px;
+        }
+
+        /* 6. Footer */
+        footer {
+            background-color: var(--bg-deep);
+            padding: 60px 0 40px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .footer-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-brand img {
+            height: 36px;
+            width: auto;
+        }
+
+        .footer-tagline {
+            color: var(--text-muted);
+            font-size: 13px;
+            max-width: 480px;
+            font-weight: 300;
+        }
+
+        .footer-copy {
+            color: var(--text-dark);
+            font-size: 12px;
+        }
+
+        /* Animação unificada de carregamento gradual */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            visibility: hidden;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+
+        /* Responsividade (Media Queries) */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .hero-mockup-wrapper img {
+                max-width: 500px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 30px;
+            }
+
+            .flow-arrow {
+                display: none; /* Remove as setas de fluxo no tablet/mobile */
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-flow-container {
+                padding: 40px 20px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                row-gap: 50px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-wrap {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 34px;
+            }
+            .process-title-area h2 {
+                font-size: 26px;
+            }
+            .cta-banner h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>teste pagina</h1>
+
+    <!-- Header Simplificado -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-seedling logo-icon"></i>
+                <div class="logo-text">
+                    <h1>LUMORA</h1>
+                    <span>Memórias que Perduram</span>
+                </div>
+            </div>
+            <button class="btn-back-home" onclick="location.href='#home'">
+                <i class="fa-solid fa-house"></i> Voltar para Home
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag">Como Funciona</span>
+                <h2>Simples, humano e cheio de <span>significado</span>.</h2>
+                <p>Criamos uma experiência completa para transformar histórias e lembranças em páginas digitais únicas, com todo o cuidado e respeito que elas merecem.</p>
+                <button class="btn-cta">
+                    <i class="fa-brands fa-whatsapp"></i> Criar minha homenagem
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosso Processo em 6 Passos -->
+    <section class="process-section">
+        <div class="container">
+            
+            <div class="process-title-area">
+                <span>Nosso Processo em 6 Passos</span>
+                <h2>Do primeiro contato à memória eternizada.</h2>
+            </div>
+
+            <div class="process-flow-container fade-in-section">
+                
+                <!-- Setas Indicadoras de Fluxo (Desktop) -->
+                <div class="flow-arrow arrow-1-2"><i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="flow-arrow arrow-2-3"><i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="flow-arrow arrow-4-5"><i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="flow-arrow arrow-5-6"><i class="fa-solid fa-arrow-right-long"></i></div>
+
+                <div class="process-grid">
+                    
+                    <!-- Passo 1 -->
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-header">
+                            <i class="fa-regular fa-comment-dots"></i>
+                            <h3>Primeiro contato</h3>
+                        </div>
+                        <p>Você fala conosco pelo WhatsApp ou formulário e nos conta quem deseja homenagear e como imagina essa lembrança.</p>
+                        <div class="step-image-wrap">
+                            <img src="./../../img/ilustracoes/primeirocontato.jpg" alt="Primeiro Contato">
+                        </div>
+                    </div>
+
+                    <!-- Passo 2 -->
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-header">
+                            <i class="fa-regular fa-folder-open"></i>
+                            <h3>Envio de informações</h3>
+                        </div>
+                        <p>Você nos envia fotos, vídeos, textos, datas importantes, músicas e tudo que deseja incluir na homenagem.</p>
+                        <div class="step-image-wrap">
+                            <img src="./../../img/ilustracoes/informacoes.jpg" alt="Envio de Informações">
+                        </div>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-header">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <h3>Criação personalizada</h3>
+                        </div>
+                        <p>Nossa equipe cria uma página única, com design exclusivo, reunindo tudo de forma bonita, organizada e emocionante.</p>
+                        <div class="step-image-wrap">
+                            <img src="./../../img/ilustracoes/notbook.png" alt="Criação Personalizada">
+                        </div>
+                    </div>
+
+                    <!-- Passo 4 -->
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-header">
+                            <i class="fa-regular fa-eye"></i>
+                            <h3>Sua revisão</h3>
+                        </div>
+                        <p>Enviamos a prévia para você revisar cada detalhe. Você pode solicitar ajustes até ficar exatamente como sonhou.</p>
+                        <div class="step-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" alt="Sua Revisão">
+                        </div>
+                    </div>
+
+                    <!-- Passo 5 -->
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <div class="step-header">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <h3>Publicação</h3>
+                        </div>
+                        <p>Com tudo aprovado, publicamos sua homenagem e ela fica pronta para ser compartilhada com quem importa.</p>
+                        <div class="step-image-wrap">
+                            <img src="./../../img/ilustracoes/publicacoes.png" alt="Publicação">
+                        </div>
+                    </div>
+
+                    <!-- Passo 6 -->
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <div class="step-header">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <h3>Compartilhe e eternize</h3>
+                        </div>
+                        <p>Você recebe o link exclusivo da página e, se desejar, um QR Code para imprimir e levar essa memória para onde quiser.</p>
+                        <div class="step-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&q=80&w=400" alt="Compartilhe e Eternize">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tudo Pensado Para Você -->
+    <section class="features-section">
+        <div class="container">
+            
+            <div class="features-title-centered">
+                <h2>Tudo Pensado Para Você</h2>
+            </div>
+
+            <div class="features-grid">
+                
+                <!-- Card 1 -->
+                <div class="feature-card fade-in-section">
+                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h4>100% Responsivo</h4>
+                    <p>Funciona perfeitamente no celular, tablet e computador.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card fade-in-section">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Seguro e Privado</h4>
+                    <p>Suas informações e memórias são protegidas com respeito e privacidade.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card fade-in-section">
+                    <div class="feature-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h4>Acesso Fácil</h4>
+                    <p>Compartilhe com familiares e amigos de qualquer lugar do mundo.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card fade-in-section">
+                    <div class="feature-icon"><i class="fa-solid fa-infinity"></i></div>
+                    <h4>Memórias que Duram</h4>
+                    <p>Criamos páginas feitas para permanecer e atravessar gerações.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Cada história merece ser lembrada. <span>Nós cuidamos de cada detalhe.</span></h2>
+            <button class="btn-cta">
+                <i class="fa-brands fa-whatsapp"></i> Criar minha homenagem agora
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-wrap">
+            <div class="footer-brand">
+                <i class="fa-solid fa-seedling logo-icon"></i>
+                <div class="logo-text">
+                    <h1>LUMORA</h1>
+                    <span>Memórias que Perduram</span>
+                </div>
+            </div>
+            <p class="footer-tagline">A Lumora transforma histórias em memórias digitais que atravessam o tempo e conectam gerações.</p>
+            <span class="footer-copy">© 2026 Lumora. Todos os direitos reservados.</span>
+        </div>
+    </footer>
+
+    <!-- JavaScript para animação gradual de rolagem -->
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.fade-in-section');
+        animatedElements.forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
