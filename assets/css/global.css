@@ -29,3 +29,26 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .social-link:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+        
