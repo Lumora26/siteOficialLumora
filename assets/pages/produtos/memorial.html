@@ -21,14 +21,14 @@
         }
 
         :root {
-            --bg-dark-color: #090503;
-            --card-bg-color: #110b07;
-            --border-color: #2c1e14;
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --text-light: #f5eedc;
-            --text-muted: #a39281;
-            --whatsapp-green: #25d366;
+            --bg-dark-color: #0b0705;       
+            --card-bg-color: #120c09;       
+            --border-color: #241710;        
+            --gold-primary: #c5a059;        
+            --gold-light: #e0cca3;          
+            --text-light: #e3dec3;          
+            --text-muted: #8e7a65;          
+            --whatsapp-green: #25d366;      
         }
 
         body {
@@ -48,10 +48,9 @@
         }
 
         a:hover {
-            color: var(--gold-primary);
+            color: var(--gold-light);
         }
 
-        /* --- CONTAINER GERAL --- */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -63,7 +62,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0 50px 0;
+            padding: 20px 0 40px 0;
             position: relative;
         }
 
@@ -76,12 +75,14 @@
             border-radius: 6px;
             font-size: 0.85rem;
             color: var(--text-muted);
+            background-color: rgba(12, 8, 5, 0.4);
             transition: all 0.3s ease;
         }
 
         .btn-back:hover {
             border-color: var(--gold-primary);
             color: var(--gold-primary);
+            background-color: rgba(12, 8, 5, 0.8);
         }
 
         .logo-area {
@@ -115,24 +116,7 @@
             text-transform: uppercase;
         }
 
-        /* --- GRID DOS CARDS --- */
-        .grid-products {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        @media (max-width: 992px) {
-            .grid-products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
-            .grid-products {
-                grid-template-columns: 1fr;
-            }
             header {
                 flex-direction: column;
                 gap: 20px;
@@ -144,86 +128,66 @@
             }
         }
 
-        /* --- CARD DE PRODUTO --- */
-        .card-product {
+        /* --- SEÇÕES VERTICAIS EMPILHADAS --- */
+        .product-section {
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Container que permite alinhar múltiplos cards dentro de uma única seção */
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* --- CARD QUE CONTÉM O CELULAR E O BOTÃO --- */
+        .product-card {
             background-color: var(--card-bg-color);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px 20px;
+            border-radius: 20px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .card-product:hover {
-            border-color: rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .card-icon {
-            font-size: 2.2rem;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
-        }
-
-        .card-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--gold-primary);
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            min-height: 40px;
-            max-width: 280px;
-        }
-
-        /* --- CARROSSEL / MOCKUP DE CELULAR --- */
-        .phone-carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
             width: 100%;
-            margin-bottom: 25px;
+            max-width: 320px; /* Mantém a proporção vertical do rascunho */
+            transition: border-color 0.3s ease;
         }
 
-        .carousel-arrow {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-arrow:hover {
+        .product-card:hover {
             border-color: var(--gold-primary);
-            color: var(--gold-primary);
-            background-color: rgba(212, 175, 55, 0.05);
         }
 
+        .product-card.under-development {
+            opacity: 0.7;
+        }
+
+        /* --- MOCKUP DE CELULAR --- */
         .phone-mockup {
-            width: 195px;
-            height: 390px;
-            border: 7px solid #221a14;
-            border-radius: 28px;
+            width: 100%;
+            height: 420px;
+            border: 7px solid #1a110a;
+            border-radius: 24px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            background-color: #000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            background-color: #050302;
+            margin-bottom: 25px;
         }
 
         .phone-screen {
@@ -242,7 +206,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.95) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 70%,);
             z-index: 1;
         }
 
@@ -251,12 +215,12 @@
             z-index: 2;
         }
 
-        /* Elementos da Tela Interna */
+        /* Elementos Internos do Celular */
         .phone-header {
             display: flex;
             justify-content: space-between;
             font-size: 0.55rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(227, 222, 195, 0.7);
         }
 
         .phone-profile {
@@ -267,17 +231,17 @@
         }
 
         .phone-avatar {
-            width: 75px;
-            height: 75px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: 2px solid var(--gold-primary);
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .phone-name {
             font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--gold-light);
             text-align: center;
             margin-bottom: 4px;
@@ -290,18 +254,17 @@
         }
 
         .phone-bio {
-            font-size: 0.58rem;
-            color: #fff;
+            font-size: 0.6rem;
+            color: var(--text-light);
             text-align: center;
             line-height: 1.3;
-            max-width: 140px;
+            max-width: 160px;
         }
 
-        /* Menu do Celular */
         .phone-nav {
             display: flex;
             justify-content: space-around;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
             padding-top: 10px;
         }
 
@@ -309,9 +272,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 0.42rem;
+            font-size: 0.45rem;
             color: var(--text-muted);
-            gap: 3px;
+            gap: 2px;
         }
 
         .phone-nav-item i {
@@ -319,40 +282,35 @@
             color: var(--gold-primary);
         }
 
-        /* --- QR CODE & DEMO --- */
-        .qrcode-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            padding: 0 10px;
-            margin-bottom: 20px;
-        }
-
-        .qrcode-box {
-            background-color: #fff;
-            padding: 4px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            flex-shrink: 0;
-        }
-
-        .qrcode-box svg {
+        /* Tela de Desenvolvimento */
+        .dev-screen {
+            background-color: #0e0906;
             width: 100%;
             height: 100%;
-        }
-
-        .qrcode-text {
-            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             color: var(--text-muted);
-            text-align: left;
-            line-height: 1.3;
+            padding: 20px;
+            gap: 15px;
         }
 
+        .dev-screen i {
+            font-size: 2.8rem;
+            color: var(--border-color);
+        }
+
+        .dev-screen span {
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* --- BOTÃO DE LINK --- */
         .btn-demo {
             display: inline-flex;
             align-items: center;
@@ -375,6 +333,13 @@
             color: var(--bg-dark-color);
         }
 
+        .btn-demo.disabled {
+            border-color: var(--border-color);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
         /* --- CONTAINER CTA WHATSAPP --- */
         .cta-section {
             background-color: var(--card-bg-color);
@@ -386,19 +351,19 @@
             align-items: center;
             gap: 30px;
             width: 100%;
+            margin-top: 20px;
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
         }
 
-        /* Detalhe de fundo floral sutil */
         .cta-section::after {
             content: "✿";
             position: absolute;
             left: -20px;
             bottom: -50px;
             font-size: 10rem;
-            color: rgba(212, 175, 55, 0.03);
+            color: rgba(197, 160, 89, 0.02);
             pointer-events: none;
         }
 
@@ -542,7 +507,7 @@
         .social-link:hover {
             color: var(--gold-primary);
             border-color: var(--gold-primary);
-            background-color: rgba(212, 175, 55, 0.05);
+            background-color: rgba(197, 160, 89, 0.05);
         }
 
         .footer-col-title {
@@ -601,352 +566,158 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="./../../css/components.css">
 </head>
 <body>
 
     <div class="container">
         <!-- --- CABEÇALHO --- -->
         <header>
-            <a href="#" class="btn-back">
+            <a href="./../../../index.html" class="btn-back">
                 <i class="fa-solid fa-chevron-left"></i> Voltar para a home
             </a>
-            <div class="logo-area">
-                <svg viewBox="0 0 100 100">
-                    <!-- Símbolo estilizado de flor de lótus / Sol geométrico -->
-                    <path d="M50,15 C52,28 55,35 62,42 C69,35 72,28 74,15 C72,28 69,35 62,42 C55,35 52,28 50,15 Z" />
-                    <path d="M50,85 C52,72 55,65 62,58 C69,65 72,72 74,85 C72,72 69,65 62,58 C55,65 52,72 50,85 Z" />
-                    <path d="M50,15 C48,28 45,35 38,42 C31,35 28,28 26,15 C28,28 31,35 38,42 C45,35 48,28 50,15 Z" />
-                    <path d="M50,85 C48,72 45,65 38,58 C31,65 28,72 26,85 C28,72 31,65 38,58 C45,65 48,72 50,85 Z" />
-                    <path d="M15,50 C28,52 35,55 42,62 C35,69 28,72 15,74 C28,72 35,69 42,62 C35,55 28,52 15,50 Z" />
-                    <path d="M85,50 C72,52 65,55 58,62 C65,69 72,72 85,74 C72,72 65,69 58,62 C65,55 72,52 85,50 Z" />
-                    <circle cx="50" cy="50" r="6" />
-                </svg>
-                <div class="logo-title">LUMORA</div>
-                <div class="logo-subtitle">Memorial Digital</div>
-            </div>
+            <a href="#" class="logo">
+                <img src="./../../img/logo/rosalumora.png" alt="">
+                <div class="logo-text">
+                    <span class="logo-title">LUMORA</span>
+                    <span class="logo-subtitle">Memorial Digital</span>
+                </div>
+            </a>
             <div style="width: 150px; display: block;" class="mobile-hide"></div>
         </header>
 
-        <!-- --- GRID DOS CARDS --- -->
-        <main class="grid-products">
+        <!-- --- LISTA DE PRODUTOS EMPILHADOS --- -->
+        <main>
 
-            <!-- Card 1: Lumora Memorial -->
-            <section class="card-product">
-                <i class="fa-solid fa-seedling card-icon"></i>
-                <h2 class="card-title">Lumora<br>Memorial</h2>
-                <p class="card-desc">Homenagens para entes queridos que deixaram saudades.</p>
-                
-                <div class="phone-carousel-container">
-                    <button class="carousel-arrow" aria-label="Anterior" onclick="changeSlide(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="phone-mockup">
-                        <div class="phone-screen" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=400');">
-                            <div class="phone-header">
-                                <span>9:41</span>
-                                <i class="fa-solid fa-signal"></i>
-                            </div>
-                            <div class="phone-profile">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Maria Aparecida" class="phone-avatar">
-                                <h3 class="phone-name">Maria Aparecida</h3>
-                                <div class="phone-dates">✦ 12/03/1946 &nbsp;  † 10/01/2024</div>
-                                <p class="phone-bio">"Para sempre em nossos corações."</p>
-                            </div>
-                            <div class="phone-nav">
-                                <div class="phone-nav-item"><i class="fa-solid fa-image"></i>Fotos</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-timeline"></i>Linha do Tempo</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-envelope"></i>Mensagens</div>
+            <!-- Seção 1: Lumora Memorial -->
+            <section class="product-section">
+                <h2 class="section-title">Lumora Memorial</h2>
+                <div class="cards-wrapper">
+                    <div class="product-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen" style="background-image: url('./../../img/modelos/modelome1.png');">
+                                <div class="phone-header">
+                                    <span>9:41</span>
+                                    <i class="fa-solid fa-signal"></i>
+                                </div>
                             </div>
                         </div>
+                        <a href="https://lumoramemorial.netlify.app/" target="_blank" class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                    <button class="carousel-arrow" aria-label="Próximo" onclick="changeSlide(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <!-- QR Code gerado por SVG simples -->
-                        <svg viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="black"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="black"/>
-                            <rect x="65" y="10" width="25" height="25" fill="black"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="black"/>
-                            <rect x="10" y="65" width="25" height="25" fill="black"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="black"/>
-                            <rect x="45" y="45" width="10" height="10" fill="black"/>
-                            <rect x="65" y="65" width="10" height="10" fill="black"/>
-                            <rect x="75" y="75" width="15" height="15" fill="black"/>
-                        </svg>
-                    </div>
-                    <span class="qrcode-text">Escaneie para ver no seu celular</span>
-                </div>
-                <button class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </section>
 
-            <!-- Card 2: Lumora Pets -->
-            <section class="card-product">
-                <i class="fa-solid fa-paw card-icon"></i>
-                <h2 class="card-title">Lumora<br>Pets</h2>
-                <p class="card-desc">Porque eles também fazem parte da nossa história.</p>
-                
-                <div class="phone-carousel-container">
-                    <button class="carousel-arrow" aria-label="Anterior" onclick="changeSlide(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="phone-mockup">
-                        <div class="phone-screen" style="background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=400');">
-                            <div class="phone-header">
-                                <span>9:41</span>
-                                <i class="fa-solid fa-signal"></i>
-                            </div>
-                            <div class="phone-profile">
-                                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=200" alt="Mel" class="phone-avatar">
-                                <h3 class="phone-name">Mel</h3>
-                                <div class="phone-dates">✦ 15/04/2012 &nbsp;  † 30/04/2024</div>
-                                <p class="phone-bio">"Para sempre no nosso coração."</p>
-                            </div>
-                            <div class="phone-nav">
-                                <div class="phone-nav-item"><i class="fa-solid fa-circle-info"></i>Sobre</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-images"></i>Galeria</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-heart"></i>Recados</div>
+            <!-- Seção 2: Lumora Pets -->
+            <section class="product-section">
+                <h2 class="section-title">Lumora Pets</h2>
+                <div class="cards-wrapper">
+                    <div class="product-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen" style="background-image: url('./../../img/modelos/modelop1.png');">
+                                <div class="phone-header">
+                                    <span>9:41</span>
+                                    <i class="fa-solid fa-signal"></i>
+                                </div>
                             </div>
                         </div>
+                        <a href="https://lumorapets.netlify.app/" target="_blank" class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                    <button class="carousel-arrow" aria-label="Próximo" onclick="changeSlide(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <svg viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="black"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="black"/>
-                            <rect x="65" y="10" width="25" height="25" fill="black"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="black"/>
-                            <rect x="10" y="65" width="25" height="25" fill="black"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="black"/>
-                            <rect x="45" y="45" width="10" height="10" fill="black"/>
-                            <rect x="65" y="65" width="10" height="10" fill="black"/>
-                            <rect x="75" y="75" width="15" height="15" fill="black"/>
-                        </svg>
-                    </div>
-                    <span class="qrcode-text">Escaneie para ver no seu celular</span>
-                </div>
-                <button class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </section>
 
-            <!-- Card 3: Lumora Moments -->
-            <section class="card-product">
-                <i class="fa-solid fa-cake-candles card-icon"></i>
-                <h2 class="card-title">Lumora<br>Moments</h2>
-                <p class="card-desc">Para celebrar momentos que marcam para sempre.</p>
-                
-                <div class="phone-carousel-container">
-                    <button class="carousel-arrow" aria-label="Anterior" onclick="changeSlide(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="phone-mockup">
-                        <div class="phone-screen" style="background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400');">
-                            <div class="phone-header">
-                                <span>9:41</span>
-                                <i class="fa-solid fa-signal"></i>
-                            </div>
-                            <div class="phone-profile">
-                                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=200" alt="Beatriz" class="phone-avatar">
-                                <h3 class="phone-name">15 Anos Beatriz</h3>
-                                <div class="phone-dates">✦ 08 de março de 2024</div>
-                                <p class="phone-bio">"Um dia inesquecível!"</p>
-                            </div>
-                            <div class="phone-nav">
-                                <div class="phone-nav-item"><i class="fa-solid fa-camera"></i>Galeria</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-wand-magic-sparkles"></i>Filtros</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-message"></i>Recados</div>
+            <!-- Seção 3: Lumora Moments (Todos os 3 Modelos Juntos) -->
+            <section class="product-section">
+                <h2 class="section-title">Lumora Moments</h2>
+                <div class="cards-wrapper">
+                    
+                    <!-- Modelo 1 -->
+                    <div class="product-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen" style="background-image: url('./../../img/modelos/modelom1.png');">
+                                <div class="phone-header">
+                                    <span>9:41</span>
+                                    <i class="fa-solid fa-signal"></i>
+                                </div>
                             </div>
                         </div>
+                        <a href="https://lumoramoments1.netlify.app/" target="_blank" class="btn-demo">Ver demonstração 1 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                    <button class="carousel-arrow" aria-label="Próximo" onclick="changeSlide(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
 
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <svg viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="black"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="black"/>
-                            <rect x="65" y="10" width="25" height="25" fill="black"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="black"/>
-                            <rect x="10" y="65" width="25" height="25" fill="black"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="black"/>
-                            <rect x="45" y="45" width="10" height="10" fill="black"/>
-                            <rect x="65" y="65" width="10" height="10" fill="black"/>
-                            <rect x="75" y="75" width="15" height="15" fill="black"/>
-                        </svg>
+                    <!-- Modelo 2 -->
+                    <div class="product-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen" style="background-image: url('./../../img/modelos/modelom2.png');">
+                                <div class="phone-header">
+                                    <span>9:41</span>
+                                    <i class="fa-solid fa-signal"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://lumoramoments2.netlify.app/" target="_blank" class="btn-demo">Ver demonstração 2 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
-                    <span class="qrcode-text">Escaneie para ver no seu celular</span>
+
+                    <!-- Modelo 3 -->
+                    <div class="product-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen" style="background-image: url('./../../img/modelos/modelom3.png');">
+                                <div class="phone-header">
+                                    <span>9:41</span>
+                                    <i class="fa-solid fa-signal"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://lumoramoments3.netlify.app/" target="_blank" class="btn-demo">Ver demonstração 3 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+
                 </div>
-                <button class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </section>
 
-            <!-- Card 4: Lumora Tribute -->
-            <section class="card-product">
-                <i class="fa-solid fa-star card-icon"></i>
-                <h2 class="card-title">Lumora<br>Tribute</h2>
-                <p class="card-desc">Ideal para artistas, bandas, influenciadores e personalidades.</p>
-                
-                <div class="phone-carousel-container">
-                    <button class="carousel-arrow" aria-label="Anterior" onclick="changeSlide(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="phone-mockup">
-                        <div class="phone-screen" style="background-image: url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&q=80&w=400');">
-                            <div class="phone-header">
-                                <span>9:41</span>
-                                <i class="fa-solid fa-signal"></i>
-                            </div>
-                            <div class="phone-profile">
-                                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=200" alt="Lucas Ferreira" class="phone-avatar">
-                                <h3 class="phone-name">Lucas Ferreira</h3>
-                                <div class="phone-dates">Música que fica. Legado que inspira.</div>
-                                <p class="phone-bio">Músico e Compositor</p>
-                            </div>
-                            <div class="phone-nav">
-                                <div class="phone-nav-item"><i class="fa-solid fa-music"></i>Discografia</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-video"></i>Vídeos</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-calendar-days"></i>Agenda</div>
+            <!-- Seção 4: Lumora Tribute (Em desenvolvimento) -->
+            <section class="product-section">
+                <h2 class="section-title">Lumora Tribute</h2>
+                <div class="cards-wrapper">
+                    <div class="product-card under-development">
+                        <div class="phone-mockup">
+                            <div class="dev-screen">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                                <span>Em<br>Desenvolvimento</span>
                             </div>
                         </div>
+                        <button class="btn-demo disabled">Em breve</button>
                     </div>
-                    <button class="carousel-arrow" aria-label="Próximo" onclick="changeSlide(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <svg viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="black"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="black"/>
-                            <rect x="65" y="10" width="25" height="25" fill="black"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="black"/>
-                            <rect x="10" y="65" width="25" height="25" fill="black"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="black"/>
-                            <rect x="45" y="45" width="10" height="10" fill="black"/>
-                            <rect x="65" y="65" width="10" height="10" fill="black"/>
-                            <rect x="75" y="75" width="15" height="15" fill="black"/>
-                        </svg>
-                    </div>
-                    <span class="qrcode-text">Escaneie para ver no seu celular</span>
-                </div>
-                <button class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </section>
 
-            <!-- Card 5: Lumora Legacy -->
-            <section class="card-product">
-                <i class="fa-solid fa-tree card-icon"></i>
-                <h2 class="card-title">Lumora<br>Legacy</h2>
-                <p class="card-desc">Preserve histórias, conquistas e legados que inspiram.</p>
-                
-                <div class="phone-carousel-container">
-                    <button class="carousel-arrow" aria-label="Anterior" onclick="changeSlide(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="phone-mockup">
-                        <div class="phone-screen" style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=400');">
-                            <div class="phone-header">
-                                <span>9:41</span>
-                                <i class="fa-solid fa-signal"></i>
-                            </div>
-                            <div class="phone-profile">
-                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=200" alt="Família Souza" class="phone-avatar">
-                                <h3 class="phone-name">Família Souza</h3>
-                                <div class="phone-dates">Nosso legado, nossas raízes.</div>
-                                <p class="phone-bio">"Uma história que atravessa gerações."</p>
-                            </div>
-                            <div class="phone-nav">
-                                <div class="phone-nav-item"><i class="fa-solid fa-book-open"></i>História</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-folder-open"></i>Arquivo</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-sitemap"></i>Árvore</div>
+            <!-- Seção 5: Lumora Legacy (Em desenvolvimento) -->
+            <section class="product-section">
+                <h2 class="section-title">Lumora Legacy</h2>
+                <div class="cards-wrapper">
+                    <div class="product-card under-development">
+                        <div class="phone-mockup">
+                            <div class="dev-screen">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                                <span>Em<br>Desenvolvimento</span>
                             </div>
                         </div>
+                        <button class="btn-demo disabled">Em breve</button>
                     </div>
-                    <button class="carousel-arrow" aria-label="Próximo" onclick="changeSlide(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <svg viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="black"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="black"/>
-                            <rect x="65" y="10" width="25" height="25" fill="black"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="black"/>
-                            <rect x="10" y="65" width="25" height="25" fill="black"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="black"/>
-                            <rect x="45" y="45" width="10" height="10" fill="black"/>
-                            <rect x="65" y="65" width="10" height="10" fill="black"/>
-                            <rect x="75" y="75" width="15" height="15" fill="black"/>
-                        </svg>
-                    </div>
-                    <span class="qrcode-text">Escaneie para ver no seu celular</span>
-                </div>
-                <button class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </section>
 
-            <!-- Card 6: Lumora History -->
-            <section class="card-product">
-                <i class="fa-solid fa-book card-icon"></i>
-                <h2 class="card-title">Lumora<br>History</h2>
-                <p class="card-desc">Registre trajetórias, instituições e histórias que constroem o futuro.</p>
-                
-                <div class="phone-carousel-container">
-                    <button class="carousel-arrow" aria-label="Anterior" onclick="changeSlide(this, -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="phone-mockup">
-                        <div class="phone-screen" style="background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=400');">
-                            <div class="phone-header">
-                                <span>9:41</span>
-                                <i class="fa-solid fa-signal"></i>
-                            </div>
-                            <div class="phone-profile">
-                                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=200" alt="Colégio Aurora" class="phone-avatar">
-                                <h3 class="phone-name">Colégio Aurora</h3>
-                                <div class="phone-dates">Educando gerações desde 1920.</div>
-                                <p class="phone-bio">"Tradição e inovação no ensino."</p>
-                            </div>
-                            <div class="phone-nav">
-                                <div class="phone-nav-item"><i class="fa-solid fa-landmark"></i>Origem</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-graduation-cap"></i>Alunos</div>
-                                <div class="phone-nav-item"><i class="fa-solid fa-star"></i>Conquistas</div>
+            <!-- Seção 6: Lumora History (Em desenvolvimento) -->
+            <section class="product-section">
+                <h2 class="section-title">Lumora History</h2>
+                <div class="cards-wrapper">
+                    <div class="product-card under-development">
+                        <div class="phone-mockup">
+                            <div class="dev-screen">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                                <span>Em<br>Desenvolvimento</span>
                             </div>
                         </div>
+                        <button class="btn-demo disabled">Em breve</button>
                     </div>
-                    <button class="carousel-arrow" aria-label="Próximo" onclick="changeSlide(this, 1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-
-                <div class="qrcode-container">
-                    <div class="qrcode-box">
-                        <svg viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="black"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="black"/>
-                            <rect x="65" y="10" width="25" height="25" fill="black"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="black"/>
-                            <rect x="10" y="65" width="25" height="25" fill="black"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="black"/>
-                            <rect x="45" y="45" width="10" height="10" fill="black"/>
-                            <rect x="65" y="65" width="10" height="10" fill="black"/>
-                            <rect x="75" y="75" width="15" height="15" fill="black"/>
-                        </svg>
-                    </div>
-                    <span class="qrcode-text">Escaneie para ver no seu celular</span>
-                </div>
-                <button class="btn-demo">Ver demonstração <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </section>
 
         </main>
@@ -966,20 +737,21 @@
                 </div>
             </div>
         </section>
+            <a href="./../../../index.html" class="btn-back">
+                <i class="fa-solid fa-chevron-left"></i> Voltar para a home
+            </a>
 
         <!-- --- FOOTER --- -->
         <footer>
             <div class="footer-grid">
                 <div class="footer-about">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M50,15 C52,28 55,35 62,42 C69,35 72,28 74,15 C72,28 69,35 62,42 C55,35 52,28 50,15 Z" />
-                        <path d="M50,85 C52,72 55,65 62,58 C69,65 72,72 74,85 C72,72 69,65 62,58 C55,65 52,72 50,85 Z" />
-                        <path d="M50,15 C48,28 45,35 38,42 C31,35 28,28 26,15 C28,28 31,35 38,42 C45,35 48,28 50,15 Z" />
-                        <path d="M50,85 C48,72 45,65 38,58 C31,65 28,72 26,85 C28,72 31,65 38,58 C45,65 48,72 50,85 Z" />
-                        <circle cx="50" cy="50" r="6" />
-                    </svg>
-                    <div class="footer-logo-title">LUMORA</div>
-                    <div class="footer-logo-subtitle">Memorial Digital</div>
+            <a href="#" class="logo">
+                <img src="./../../img/logo/rosalumora.png" alt="">
+                <div class="logo-text">
+                    <span class="logo-title">LUMORA</span>
+                    <span class="logo-subtitle">Memorial Digital</span>
+                </div>
+            </a>
                     <p class="footer-desc">Transformamos memórias em experiências digitais elegantes e eternas.</p>
                     <div class="footer-socials">
                         <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -988,19 +760,6 @@
                         <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
-
-                <div>
-                    <h4 class="footer-col-title">Navegação</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Produtos</a></li>
-                        <li><a href="#">Sobre Nós</a></li>
-                        <li><a href="#">Como Funciona</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </div>
-
                 <div>
                     <h4 class="footer-col-title">Produtos</h4>
                     <ul class="footer-links">
@@ -1017,11 +776,11 @@
                     <h4 class="footer-col-title">Contato</h4>
                     <div class="footer-contact-item">
                         <i class="fa-solid fa-phone"></i>
-                        <span>(11) 99999-9999</span>
+                        <span>(11) 96147-5002</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>contato@lumora.com.br</span>
+                        <span>lumoraoficialmdl@gmail.com</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fa-solid fa-location-dot"></i>
@@ -1036,89 +795,5 @@
             </div>
         </footer>
     </div>
-
-    <!-- --- JAVASCRIPT --- -->
-    <script>
-        // Dados para simulação do carrossel nos celulares (substituição dinâmica de telas ao clicar nas setas)
-        const mockData = {
-            "Lumora Memorial": [
-                {
-                    bg: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=400",
-                    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200",
-                    name: "Maria Aparecida",
-                    dates: "✦ 12/03/1946   † 10/01/2024",
-                    bio: '"Para sempre em nossos corações."'
-                },
-                {
-                    bg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400",
-                    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
-                    name: "João Silva",
-                    dates: "✦ 05/08/1939   † 14/11/2023",
-                    bio: '"Um exemplo de vida e bondade para todos."'
-                }
-            ],
-            "Lumora Pets": [
-                {
-                    bg: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=400",
-                    avatar: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=200",
-                    name: "Mel",
-                    dates: "✦ 15/04/2012   † 30/04/2024",
-                    bio: '"Para sempre no nosso coração."'
-                },
-                {
-                    bg: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=400",
-                    avatar: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200",
-                    name: "Mingau",
-                    dates: "✦ 10/05/2015   † 12/01/2024",
-                    bio: '"O gatinho mais doce que já existiu."'
-                }
-            ]
-        };
-
-        // Estado atual de índices dos carrosséis
-        const slideIndexes = {
-            "Lumora Memorial": 0,
-            "Lumora Pets": 0
-        };
-
-        function changeSlide(button, direction) {
-            // Identifica qual card de produto o usuário clicou
-            const card = button.closest('.card-product');
-            const titleElement = card.querySelector('.card-title');
-            const title = titleElement.innerText.replace('\n', ' ');
-
-            // Se o card possuir múltiplos slides mapeados, faz a transição sutil
-            if (mockData[title]) {
-                let currentIndex = slideIndexes[title];
-                currentIndex += direction;
-
-                if (currentIndex >= mockData[title].length) {
-                    currentIndex = 0;
-                } else if (currentIndex < 0) {
-                    currentIndex = mockData[title].length - 1;
-                }
-
-                slideIndexes[title] = currentIndex;
-                const data = mockData[title][currentIndex];
-
-                const screen = card.querySelector('.phone-screen');
-                const avatar = card.querySelector('.phone-avatar');
-                const name = card.querySelector('.phone-name');
-                const dates = card.querySelector('.phone-dates');
-                const bio = card.querySelector('.phone-bio');
-
-                // Transição de opacidade sutil
-                screen.style.opacity = '0.5';
-                setTimeout(() => {
-                    screen.style.backgroundImage = `url('${data.bg}')`;
-                    avatar.src = data.avatar;
-                    name.innerText = data.name;
-                    dates.innerText = data.dates;
-                    bio.innerText = data.bio;
-                    screen.style.opacity = '1';
-                }, 150);
-            }
-        }
-    </script>
 </body>
 </html>
